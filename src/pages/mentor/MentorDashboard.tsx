@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/Layout/Navbar";
-import { Calendar, Users, FileText, TrendingUp, Clock, AlertCircle } from "lucide-react";
+import { Calendar, Users, FileText, TrendingUp, Clock, AlertCircle, QrCode } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // Mock data
@@ -174,6 +174,20 @@ const MentorDashboard = () => {
                   <Link to="/mentor/mentees">
                     <Users className="w-5 h-5 mr-3" />
                     View Mentees
+                  </Link>
+                </Button>
+                
+                <Button asChild variant="outline" className="w-full justify-start" size="lg">
+                  <Link to="/mentor/analytics">
+                    <TrendingUp className="w-5 h-5 mr-3" />
+                    Analytics & Reports
+                  </Link>
+                </Button>
+                
+                <Button asChild variant="outline" className="w-full justify-start" size="lg">
+                  <Link to="/mentor/qr-attendance">
+                    <QrCode className="w-5 h-5 mr-3" />
+                    QR Attendance
                   </Link>
                 </Button>
                 

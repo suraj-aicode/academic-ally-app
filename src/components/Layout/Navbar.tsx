@@ -8,7 +8,7 @@ import { Calendar, Users, FileText, Settings, LogOut, Home, User } from "lucide-
 interface NavbarProps {
   user?: {
     name: string;
-    role: 'mentor' | 'mentee';
+    role: 'mentor' | 'mentee' | 'admin';
     avatar?: string;
   };
 }
@@ -27,6 +27,10 @@ export const Navbar = ({ user }: NavbarProps) => {
     { icon: Calendar, label: "Schedule", path: "/mentor/schedule" },
     { icon: Users, label: "Mentees", path: "/mentor/mentees" },
     { icon: FileText, label: "Complaints", path: "/mentor/complaints" },
+  ] : user?.role === 'admin' ? [
+    { icon: Home, label: "Dashboard", path: "/admin/dashboard" },
+    { icon: Users, label: "Users", path: "/admin/users" },
+    { icon: Settings, label: "Settings", path: "/admin/settings" },
   ] : [
     { icon: Home, label: "Dashboard", path: "/mentee/dashboard" },
     { icon: Calendar, label: "Meetings", path: "/mentee/meetings" },

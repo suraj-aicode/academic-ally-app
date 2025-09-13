@@ -1,7 +1,7 @@
 export interface User {
   id: string;
   email: string;
-  role: 'mentor' | 'mentee';
+  role: 'mentor' | 'mentee' | 'admin';
   profile: UserProfile;
 }
 
@@ -91,4 +91,46 @@ export interface DashboardStats {
   totalStudents: number;
   averageAttendance: number;
   pendingComplaints: number;
+}
+
+export interface MeetingMinutes {
+  id: string;
+  meetingId: string;
+  content: string;
+  actionItems: string[];
+  decisions: string[];
+  createdAt: string;
+  createdBy: string;
+}
+
+export interface AttendanceRecord {
+  studentId: string;
+  studentName: string;
+  totalMeetings: number;
+  attendedMeetings: number;
+  attendancePercentage: number;
+  lastAttendance: string;
+}
+
+export interface QRAttendance {
+  id: string;
+  meetingId: string;
+  qrCode: string;
+  expiresAt: string;
+  isActive: boolean;
+}
+
+export interface AdminUser extends UserProfile {
+  id: string;
+  email: string;
+  role: 'admin';
+  permissions: string[];
+}
+
+export interface MentorAssignment {
+  id: string;
+  mentorId: string;
+  menteeId: string;
+  assignedAt: string;
+  isActive: boolean;
 }
